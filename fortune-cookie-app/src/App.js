@@ -51,7 +51,7 @@ export default function App() {
         )}
 
         {fortune && (
-          <button className="ad-button" onClick={resetCookie}>
+          <button className="fortune-ad-button" onClick={resetCookie}>
             새 쿠키 까기
           </button>
         )}
@@ -162,7 +162,7 @@ export default function App() {
           color: #5a2a0c;
         }
 
-        .ad-button {
+        .fortune-ad-button {
           background: linear-gradient(45deg, #d35400, #f1c40f);
           border: none;
           padding: 12px 30px;
@@ -174,14 +174,16 @@ export default function App() {
           box-shadow: 0 4px 8px rgba(179, 82, 0, 0.7);
           transition: all 0.3s ease;
           margin-top: 20px;
+          z-index: 10;
+          position: relative;
         }
 
-        .ad-button:hover {
+        .fortune-ad-button:hover {
           background: linear-gradient(45deg, #f1c40f, #d35400);
           transform: translateY(-2px);
         }
 
-        .ad-button:active {
+        .fortune-ad-button:active {
           transform: translateY(1px);
           box-shadow: 0 3px 6px rgba(179, 82, 0, 0.6);
         }
