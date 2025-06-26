@@ -4,7 +4,6 @@ import fortunes from "./fortunes";
 export default function App() {
   const [fortune, setFortune] = useState("");
   const [canCrack, setCanCrack] = useState(true);
-  const [adsWatched, setAdsWatched] = useState(false);
   const [isCracking, setIsCracking] = useState(false);
 
   const crackCookie = () => {
@@ -14,13 +13,11 @@ export default function App() {
       const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
       setFortune(randomFortune);
       setCanCrack(false);
-      setAdsWatched(false);
       setIsCracking(false);
     }, 1500);
   };
 
-  const watchAd = () => {
-    setAdsWatched(true);
+  const resetCookie = () => {
     setCanCrack(true);
     setFortune("");
   };
@@ -53,9 +50,9 @@ export default function App() {
           </div>
         )}
 
-        {!canCrack && !adsWatched && (
-          <button className="ad-button" onClick={watchAd}>
-            광고보고 새 쿠키 까기
+        {fortune && (
+          <button className="ad-button" onClick={resetCookie}>
+            새 쿠키 까기
           </button>
         )}
       </div>
